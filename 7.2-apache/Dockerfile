@@ -52,6 +52,8 @@ RUN rm -f /usr/local/etc/php/conf.d/php.ini \
 
 RUN rm -f /etc/apache2/conf-enabled/other-vhosts-access-log.conf
 
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
 WORKDIR /home/site/wwwroot
 
 CMD ["/bin/init_container.sh"]
